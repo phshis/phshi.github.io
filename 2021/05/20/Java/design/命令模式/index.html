@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>设计模式之命令模式 | Phshi's blog</title><meta name="keywords" content="Java,设计模式,命令模式"><meta name="author" content="Phshi"><meta name="copyright" content="Phshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="设计模式之命令模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之命令模式">
+<meta property="og:url" content="https://github.com/phshis/phshi.github.io.git/2021/05/20/Java/design/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">
+<meta property="og:site_name" content="Phshi&#39;s blog">
+<meta property="og:description" content="设计模式之命令模式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/phshi/phshi_picture/raw/master/img/design-observation-canva.jpg">
+<meta property="article:published_time" content="2021-05-20T11:13:43.000Z">
+<meta property="article:modified_time" content="2021-05-20T11:13:43.000Z">
+<meta property="article:author" content="Phshi">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/phshi/phshi_picture/raw/master/img/design-observation-canva.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://github.com/phshis/phshi.github.io.git/2021/05/20/Java/design/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="NdIUXAOVyGnnBhcrip0ksCawbdAzT0hlBZDE9u4jx6k"/><meta name="baidu-site-verification" content="code-pE5rnuxcfD"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: Phshi","link":"链接: ","source":"来源: Phshi's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-20 19:13:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><style type="text/css">.card-announcement .social-button{margin: .6rem 0 0 0; text-align: center;}.card-announcement .social-button a{display: block; margin: 0.2rem 0;background-color: var(--btn-bg); color: var(--btn-color); line-height: 1.6rem; transition: all .3s; position: relative; z-index: 1;}</style><link rel="alternate" href="/atom.xml" title="Phshi's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talking/"><i class="fa-fw fas fa-cubes"></i><span> 微博</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-thumbs-up"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/phshi/phshi_picture/raw/master/img/design-observation.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Phshi's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talking/"><i class="fa-fw fas fa-cubes"></i><span> 微博</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-thumbs-up"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">设计模式之命令模式<a class="post-edit-link" href="https://github.com/jerryc127/butterfly.js.org/edit/main/source/_posts/Java/design/命令模式.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-20T11:13:43.000Z" title="发表于 2021-05-20 19:13:43">2021-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-20T11:13:43.000Z" title="更新于 2021-05-20 19:13:43">2021-05-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">824</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="设计模式之命令模式"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><p>封装方法调用</p>
+<p>将发出请求的对象和执行请求的对象进行解耦。</p>
+<h5 id="1、问题"><a href="#1、问题" class="headerlink" title="1、问题"></a>1、问题</h5><p>现在存在一个遥控器，主要是用来控制家用电器的开关，如电灯、空调、电视等的开与关。现在实现一组遥控器的API，让每个卡槽都能够控制一个或者一组装置。</p>
+<img src= "/img/loading.gif" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/observation.png" style="zoom: 67%;" />
+
+<h5 id="2、命令模式设计"><a href="#2、命令模式设计" class="headerlink" title="2、命令模式设计"></a>2、命令模式设计</h5><h6 id="1-实现一个接口"><a href="#1-实现一个接口" class="headerlink" title="1.实现一个接口"></a>1.实现一个接口</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Command</span></span>&#123;</span><br><span class="line">    <span class="comment">//执行方法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">//撤销方法</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-实现一个电灯打开的动作"><a href="#2-实现一个电灯打开的动作" class="headerlink" title="2.实现一个电灯打开的动作"></a>2.实现一个电灯打开的动作</h6><ul>
+<li>灯对象</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Light</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">on</span><span class="params">()</span></span>&#123;</span><br><span class="line">        system.out.println(<span class="string">&quot;开灯&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">off</span><span class="params">()</span></span>&#123;</span><br><span class="line">        system.out.println(<span class="string">&quot;关灯&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开灯控制类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightOnCommand</span> <span class="title">implement</span> <span class="title">Command</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Light;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LightOnCommand</span><span class="params">(Light light)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.light = light;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>&#123;</span><br><span class="line">        light.on();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        light.off();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>关灯控制类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightOffCommand</span> <span class="title">implement</span> <span class="title">Command</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Light;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LightOffCommand</span><span class="params">(Light light)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.light = light;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>&#123;</span><br><span class="line">        light.off();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        light.on();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>空调、电视等也使用相同的方式实现。</p>
+<h6 id="3-实现遥控器"><a href="#3-实现遥控器" class="headerlink" title="3.实现遥控器"></a>3.实现遥控器</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RemoteControl</span> </span>&#123;</span><br><span class="line">    <span class="comment">//开灯集合</span></span><br><span class="line">    Command[] onCommands;</span><br><span class="line">    <span class="comment">//开灯集合</span></span><br><span class="line">    Command[] offCommands;</span><br><span class="line">    <span class="comment">//撤销操作</span></span><br><span class="line">    Command undoCommand;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 初始化遥控器</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RemoteControl</span><span class="params">()</span></span>&#123;</span><br><span class="line">        onCommands =<span class="keyword">new</span> Command[<span class="number">7</span>];</span><br><span class="line">        offCommands =<span class="keyword">new</span> Command[<span class="number">7</span>];</span><br><span class="line">        Command noCommand = <span class="keyword">new</span> NoCommand();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i =<span class="number">0</span>; i&lt;<span class="number">7</span>;i++)&#123;</span><br><span class="line">            onCommands[i] = noCommand;</span><br><span class="line">            offCommands[i] = noCommand;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//初始化设置撤销按钮为没有命令</span></span><br><span class="line">        undoCommand = noCommand;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置遥控器中每个卡槽的开和关</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCommand</span><span class="params">(<span class="keyword">int</span> slot，Command onCommand,Command offCommand)</span> </span>&#123;</span><br><span class="line">        onCommands [slot] = onCommand;</span><br><span class="line">        offCommands[slot] = offCommand;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 点击卡槽开按钮</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonwasPushed</span> <span class="params">(<span class="keyword">int</span> slot)</span></span>&#123;</span><br><span class="line">        onCommands[slot].execute();</span><br><span class="line">        undoCommand = offCommands[slot];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 点击卡槽关闭按钮</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">offButtonWasPushed</span><span class="params">(<span class="keyword">int</span> slot)</span> </span>&#123;</span><br><span class="line">        offCommands[slot].execute();</span><br><span class="line">        undoCommand = onCommands[slot];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>在上面进行初始化的时候，我们预先指定了一个<code>NoCommand</code>对象，<code>NoCommand</code>的执行体是空的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoCommand</span> <span class="keyword">implements</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span>  </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>NoCommand</code>对象是一个空对象<code>(null object)</code>的例子。当你不想返回一个有意义的对象时，空对象就很有用。客户也可以将处理<code>null</code>的责任转移给空对象。举例来说，遥控器不可能一出厂就设置了有意义的命令对象，所以提供了<code>NoCommand</code>对象作为代用品，当调用它的<code>execute()</code>方法时,这种对象什么事情都不做。在许多设计模式中，都会看到空对象的使用。<strong>甚至有些时候，空对象本身也被视为是种设计模式。</strong></li>
+</ul>
+<h5 id="3、运用"><a href="#3、运用" class="headerlink" title="3、运用"></a>3、运用</h5><h6 id="1-队列请求"><a href="#1-队列请求" class="headerlink" title="1.队列请求"></a>1.队列请求</h6><p>在工作队列中，不同的任务在执行，而然我们不知道执行的内容是什么，例如线程池，工作队列等。</p>
+<p>我们可以想象，有一个工作队列，在某一端添加命令，另一端是线程，线程进行下面动作：从队列中取出一个命令并执行<code>excute</code>方法，执行完毕丢弃并出去下一个命令继续执行。。。。。</p>
+<h6 id="2-日志请求"><a href="#2-日志请求" class="headerlink" title="2.日志请求"></a>2.日志请求</h6><h5 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h5><p>命令模式：将请求分装为对象，这可以让你使用不同的请求、队列或者日志请求来参数化其他对象。命令模式也可以支持撤销操作。</p>
+<p><strong>当需要将发出请求的对象和执行请求的对象解耦的时候，使用命令模式。</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">Phshi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://github.com/phshis/phshi.github.io.git/2021/05/20/Java/design/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">https://github.com/phshis/phshi.github.io.git/2021/05/20/Java/design/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/phshis/phshi.github.io.git" target="_blank">Phshi's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div><div class="post_share"></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/pay/wechat.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/pay/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/pay/alipay.png" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/pay/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/05/17/Java/design/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82/"><img class="prev-cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-simple-factory-canva.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">设计模式之简单工厂</div></div></a></div><div class="next-post pull-right"><a href="/2021/06/01/Java/design/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"><img class="next-cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-singleton-canva.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">设计模式之单例模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/06/01/Java/design/单例模式/" title="设计模式之单例模式"><img class="cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-singleton-canva.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-01</div><div class="title">设计模式之单例模式</div></div></a></div><div><a href="/2021/05/17/Java/design/简单工厂/" title="设计模式之简单工厂"><img class="cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-simple-factory-canva.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-17</div><div class="title">设计模式之简单工厂</div></div></a></div><div><a href="/2021/05/11/Java/design/抽象工厂/" title="设计模式之抽象工厂"><img class="cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-abstract-factory-canva.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-11</div><div class="title">设计模式之抽象工厂</div></div></a></div><div><a href="/2021/05/06/Java/design/策略模式/" title="设计模式之策略模式"><img class="cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-strategy-canva.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-06</div><div class="title">设计模式之策略模式</div></div></a></div><div><a href="/2021/05/13/Java/design/工厂方法/" title="设计模式之工厂方法"><img class="cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-method-factory-canva.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-13</div><div class="title">设计模式之工厂方法</div></div></a></div><div><a href="/2021/05/06/Java/design/观察者模式/" title="设计模式之观察者模式"><img class="cover" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/design-observer-canva.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-06</div><div class="title">设计模式之观察者模式</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Phshi</div><div class="author-info__description">stay hungry,stay foolish!</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" href="https://github.com/XiaoXiao-S"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:phshi.0603@foxmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">小小程序员一枚，欢迎大家进入我的blog，我也一直在学习，如果bolg中有什么错误，欢迎大家在<a href="/blog/messageboard/" style="color:#49b1f5">留言板</a>或者在邮件<span style="color:#49b1f5">phshi.0602@foxmail.com</span>进行反馈</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">命令模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">1、问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.</span> <span class="toc-text">2、命令模式设计</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.实现一个接口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%94%B5%E7%81%AF%E6%89%93%E5%BC%80%E7%9A%84%E5%8A%A8%E4%BD%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.实现一个电灯打开的动作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E5%AE%9E%E7%8E%B0%E9%81%A5%E6%8E%A7%E5%99%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.实现遥控器</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E8%BF%90%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3、运用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E9%98%9F%E5%88%97%E8%AF%B7%E6%B1%82"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.队列请求</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E6%97%A5%E5%BF%97%E8%AF%B7%E6%B1%82"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.日志请求</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">4、总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/08/05/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%89)%20------%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%88%E4%B8%80%EF%BC%89/" title="JVM垃圾收集器(三) ------ 垃圾回收器（一）"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/GC3-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM垃圾收集器(三) ------ 垃圾回收器（一）"/></a><div class="content"><a class="title" href="/2021/08/05/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%89)%20------%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%88%E4%B8%80%EF%BC%89/" title="JVM垃圾收集器(三) ------ 垃圾回收器（一）">JVM垃圾收集器(三) ------ 垃圾回收器（一）</a><time datetime="2021-08-05T15:22:56.000Z" title="发表于 2021-08-05 23:22:56">2021-08-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/28/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%BA%8C)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="JVM垃圾收集器(二) ------ 垃圾收集相关算法"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/GC1-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM垃圾收集器(二) ------ 垃圾收集相关算法"/></a><div class="content"><a class="title" href="/2021/07/28/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%BA%8C)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="JVM垃圾收集器(二) ------ 垃圾收集相关算法">JVM垃圾收集器(二) ------ 垃圾收集相关算法</a><time datetime="2021-07-28T05:12:32.000Z" title="发表于 2021-07-28 13:12:32">2021-07-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/20/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%80)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%A6%82%E8%BF%B0/" title="JVM垃圾收集器(一) ------ 垃圾收集概述"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/GC0-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM垃圾收集器(一) ------ 垃圾收集概述"/></a><div class="content"><a class="title" href="/2021/07/20/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%80)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%A6%82%E8%BF%B0/" title="JVM垃圾收集器(一) ------ 垃圾收集概述">JVM垃圾收集器(一) ------ 垃圾收集概述</a><time datetime="2021-07-20T11:25:49.000Z" title="发表于 2021-07-20 19:25:49">2021-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/10/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E5%85%AD%EF%BC%89------%20%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/" title="JVM内存模型（六）------ 对象在内存中的存储"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/runtime-data5-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM内存模型（六）------ 对象在内存中的存储"/></a><div class="content"><a class="title" href="/2021/07/10/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E5%85%AD%EF%BC%89------%20%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/" title="JVM内存模型（六）------ 对象在内存中的存储">JVM内存模型（六）------ 对象在内存中的存储</a><time datetime="2021-07-10T02:15:49.000Z" title="发表于 2021-07-10 10:15:49">2021-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/06/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%BA%94%EF%BC%89------%20%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%EF%BC%8C%E6%9C%AC%E5%9C%B0%E5%BA%93%E6%8E%A5%E5%8F%A3/" title="JVM内存模型（五）------ 执行引擎，本地库接口"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/runtime-data4-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM内存模型（五）------ 执行引擎，本地库接口"/></a><div class="content"><a class="title" href="/2021/07/06/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%BA%94%EF%BC%89------%20%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%EF%BC%8C%E6%9C%AC%E5%9C%B0%E5%BA%93%E6%8E%A5%E5%8F%A3/" title="JVM内存模型（五）------ 执行引擎，本地库接口">JVM内存模型（五）------ 执行引擎，本地库接口</a><time datetime="2021-07-06T15:25:49.000Z" title="发表于 2021-07-06 23:25:49">2021-07-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/phshi/phshi_picture/raw/master/img/design-observation.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Phshi</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener external nofollow noreferrer" href="http://baby_shi.gitee.io/blog/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/utils.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/main.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/tw_cn.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/search/local-search.min.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://phshi-blog.vercel.app',
+      avatar: 'monsterid',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+      visitor: false
+    }, {"placeholder":"如果有什么疑问或者问题，请在此处留言","pageSize":8,"lang":"zh-CN","requiredFields":["nick"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

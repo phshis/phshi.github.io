@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>分类: LeetCode | Phshi's blog</title><meta name="author" content="Phshi"><meta name="copyright" content="Phshi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="stay hungry,stay foolish!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phshi&#39;s blog">
+<meta property="og:url" content="https://github.com/phshis/phshi.github.io.git/categories/LeetCode/page/3/">
+<meta property="og:site_name" content="Phshi&#39;s blog">
+<meta property="og:description" content="stay hungry,stay foolish!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/phshis/phshi.github.io.git/img/avatar.jpg">
+<meta property="article:author" content="Phshi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/phshis/phshi.github.io.git/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://github.com/phshis/phshi.github.io.git/categories/LeetCode/page/3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="NdIUXAOVyGnnBhcrip0ksCawbdAzT0hlBZDE9u4jx6k"/><meta name="baidu-site-verification" content="code-pE5rnuxcfD"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: Phshi","link":"链接: ","source":"来源: Phshi's blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-08-06 16:46:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><style type="text/css">.card-announcement .social-button{margin: .6rem 0 0 0; text-align: center;}.card-announcement .social-button a{display: block; margin: 0.2rem 0;background-color: var(--btn-bg); color: var(--btn-color); line-height: 1.6rem; transition: all .3s; position: relative; z-index: 1;}</style><link rel="alternate" href="/atom.xml" title="Phshi's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talking/"><i class="fa-fw fas fa-cubes"></i><span> 微博</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-thumbs-up"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url('/img/top_img/category.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Phshi's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-compass"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/talking/"><i class="fa-fw fas fa-cubes"></i><span> 微博</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-thumbs-up"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">LeetCode</h1></div></header><main class="layout" id="content-inner"><div class="recent-posts category_ui" id="recent-posts">  <div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/28/LeetCode/easy/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" title="最长公共前缀">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/longest-common-prefix-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="最长公共前缀"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/28/LeetCode/easy/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/" title="最长公共前缀">最长公共前缀</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-27T17:05:15.000Z" title="发表于 2021-03-28 01:05:15">2021-03-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/28/LeetCode/easy/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/#post-comment"><span class="waline-comment-count" id="/2021/03/28/LeetCode/easy/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月27日
+描述：加油！加油！加油！！！！
+
+最长公共前缀原文链接：最长公共前缀
+
+问题描述：
+
+编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 &quot;&quot;。
+
+示例 1：
+
+12输入：strs &#x3D; [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出：&quot;fl&quot;
+
+
+示例 2：
+
+123输入：strs &#x3D; [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出：&quot;&quot;解释：输入不存在公共前缀。
+
+
+提示
+
+
+0 &lt;= strs.length &lt;= 200
+0 &lt;= strs[i].length &lt;= 200
+strs[i] 仅由小写英文字母组成
+
+自己思考方式一代码
+1234567891011121314151617public static String longestCommonPrefix(String[] strs ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/27/LeetCode/difficulty/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="寻找两个正序数组的中位数">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/median-of-two-sorted-arrays-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="寻找两个正序数组的中位数"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/27/LeetCode/difficulty/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" title="寻找两个正序数组的中位数">寻找两个正序数组的中位数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-27T14:30:28.000Z" title="发表于 2021-03-27 22:30:28">2021-03-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/27/LeetCode/difficulty/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/#post-comment"><span class="waline-comment-count" id="/2021/03/27/LeetCode/difficulty/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月27日
+描述：晴🌞，每日不可或缺的加油打气
+
+寻找两个正序数组的中位数原文链接：寻找两个正序数组的中位数
+
+问题描述：
+
+给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+
+示例 1：
+
+123输入：nums1 &#x3D; [1,3], nums2 &#x3D; [2]输出：2.00000解释：合并数组 &#x3D; [1,2,3] ，中位数 2
+
+
+示例 2：
+
+123输入：nums1 &#x3D; [1,2], nums2 &#x3D; [3,4]输出：2.50000解释：合并数组 &#x3D; [1,2,3,4] ，中位数 (2 + 3) &#x2F; 2 &#x3D; 2.5
+
+
+示例3：
+
+12输入：nums1 &#x3D; [0,0], nums2 &#x3D; [0,0]输出：0.00000
+
+
+示例4：
+
+12输入：nums1 &#x3D; [], nums2 &#x3D; [1]输出：1.00000
+
+
+示例5:
+
+12输入：nums1 &#x3D; [2], nu ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/27/LeetCode/easy/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B4%E6%95%B0/" title="罗马数字转化为数字">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/roman-to-integer-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="罗马数字转化为数字"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/27/LeetCode/easy/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B4%E6%95%B0/" title="罗马数字转化为数字">罗马数字转化为数字</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-26T16:23:32.000Z" title="发表于 2021-03-27 00:23:32">2021-03-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/27/LeetCode/easy/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B4%E6%95%B0/#post-comment"><span class="waline-comment-count" id="/2021/03/27/LeetCode/easy/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B4%E6%95%B0/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月25日
+描述：努力，不辜负每一天
+
+回文数原文链接：罗马数字转化为整数
+
+问题描述：
+
+罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
+
+
+
+数值
+字符
+
+
+
+1
+I
+
+
+5
+V
+
+
+10
+X
+
+
+50
+L
+
+
+100
+C
+
+
+500
+D
+
+
+1000
+M
+
+
+例如：  罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。
+通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：
+
+I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+
+X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。 
+
+C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+给定一个罗马数字，将 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/25/LeetCode/easy/%E5%9B%9E%E6%96%87%E6%95%B0/" title="回文数">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/palindrome-number-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="回文数"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/25/LeetCode/easy/%E5%9B%9E%E6%96%87%E6%95%B0/" title="回文数">回文数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-25T15:05:28.000Z" title="发表于 2021-03-25 23:05:28">2021-03-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/25/LeetCode/easy/%E5%9B%9E%E6%96%87%E6%95%B0/#post-comment"><span class="waline-comment-count" id="/2021/03/25/LeetCode/easy/%E5%9B%9E%E6%96%87%E6%95%B0/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月25日
+描述：努力，只为遇见最美好的一天
+
+回文数原文链接：回文数
+
+问题描述：
+
+给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
+回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
+
+示例 1：
+
+12输入：x &#x3D; 121输出：true
+
+
+示例 2：
+
+123输入：x &#x3D; -121输出：false解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
+
+
+示例3：
+
+123输入：x &#x3D; 10输出：false解释：从右向左读, 为 01 。因此它不是一个回文数。
+
+
+示例4：
+
+12输入：x &#x3D; -101输出：false
+
+
+提示
+
+
+-2^31^&lt;=x&lt;=2^31^ - 1
+
+进阶： 你能不将整数转为字符串来解决这个问题吗？
+自己思考方式一代码
+1234567891011121314public static boolean isPalindrome(int x) &#123;  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/25/LeetCode/easy/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" title="有效的括号">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/valid-parentheses-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="有效的括号"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/25/LeetCode/easy/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" title="有效的括号">有效的括号</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-25T15:05:28.000Z" title="发表于 2021-03-25 23:05:28">2021-03-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/25/LeetCode/easy/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/#post-comment"><span class="waline-comment-count" id="/2021/03/25/LeetCode/easy/%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月28日
+描述：努力，只为遇见最美好的一天
+
+有效的括号原文链接：有效的括号
+
+问题描述：
+
+给定一个只包括 &#39;(&#39;，&#39;)&#39;，&#39;{&#39;，&#39;}&#39;，&#39;[&#39;，&#39;]&#39; 的字符串 s ，判断字符串是否有效。
+有效字符串需满足：
+
+左括号必须用相同类型的右括号闭合。
+
+左括号必须以正确的顺序闭合。
+
+示例 1：
+
+
+12输入：s &#x3D; &quot;()&quot;输出：true
+
+
+示例 2：
+
+12输入：s &#x3D; &quot;()[]&#123;&#125;&quot;输出：true
+
+
+示例3：
+
+12输入：s &#x3D; &quot;(]&quot;输出：false
+
+
+示例4：
+
+12输入：s &#x3D; &quot;([)]&quot;输出：false
+
+
+示例5：
+
+12输入：s &#x3D; &quot;&#123;[]&#125;&quot;输出：true
+
+
+提示
+
+
+1 &lt;= s.length &lt;= 104
+s 仅由括号 &#39;( ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/23/LeetCode/easy/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/two-sum-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="两数之和"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/23/LeetCode/easy/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">两数之和</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-23T14:19:28.000Z" title="发表于 2021-03-23 22:19:28">2021-03-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/23/LeetCode/easy/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/#post-comment"><span class="waline-comment-count" id="/2021/03/23/LeetCode/easy/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月23日
+描述：这才是第一天，一定要坚持下去
+
+两数之和原文链接：两数之和
+
+问题描述：
+
+给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+
+示例 1：
+
+123输入：nums &#x3D; [2,7,11,15], target &#x3D; 9输出：[0,1]解释：因为 nums[0] + nums[1] &#x3D;&#x3D; 9 ，返回 [0, 1] 。
+
+
+示例 2：
+
+12输入：nums &#x3D; [3,2,4], target &#x3D; 6输出：[1,2]
+
+
+提示：
+
+
+2 &lt;= nums.length &lt;= 103
+-109 &lt;= nums[i] &lt;= 109
+-109 &lt;= target &lt;= 109
+**只会存在一个有效答案**
+
+自己思考方式1代码：
+123456789101112131415161718 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/03/23/LeetCode/easy/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/" title="整数反转">     <img class="post_bg" data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/reverse-integer-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="整数反转"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/23/LeetCode/easy/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/" title="整数反转">整数反转</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-23T14:19:28.000Z" title="发表于 2021-03-23 22:19:28">2021-03-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/">算法</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2021/03/23/LeetCode/easy/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/#post-comment"><span class="waline-comment-count" id="/2021/03/23/LeetCode/easy/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+日期：2021年3月24日
+描述：加油！加油！加油！！
+
+两数之和原文链接：整数反转
+
+问题描述：
+
+给你一个 32 位的有符号整数 x ，返回将 x 中的数字部分反转后的结果。如果反转后整数超过 32 位的有符号整数的范围 [−2^31^,  2^31^ − 1] ，就返回 0。
+假设环境不允许存储 64 位整数（有符号或无符号）。
+
+示例 1：
+
+12输入：x &#x3D; 123输出：321
+
+
+示例 2：
+
+12输入：x &#x3D; -123输出：-321
+
+
+示例 3：
+
+12输入：x &#x3D; 120输出：21
+
+
+示例 4：
+
+12输入：x &#x3D; 0输出：0
+
+
+提示：
+
+
+-2^31^ &lt;= x &lt;= 2^31^ - 1
+
+自己思考方式1代码：
+123456789101112public static int reverse(int x) &#123;        boolean flag = x &gt; 0;        String value = Math.abs(x)+&quot;&quot;;        StringBui ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/categories/LeetCode/page/2/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/categories/LeetCode/">1</a><a class="page-number" href="/categories/LeetCode/page/2/">2</a><span class="page-number current">3</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Phshi</div><div class="author-info__description">stay hungry,stay foolish!</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">50</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" href="https://github.com/XiaoXiao-S"><i class="fab fa-github"></i><span>GitHub</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:phshi.0603@foxmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">小小程序员一枚，欢迎大家进入我的blog，我也一直在学习，如果bolg中有什么错误，欢迎大家在<a href="/blog/messageboard/" style="color:#49b1f5">留言板</a>或者在邮件<span style="color:#49b1f5">phshi.0602@foxmail.com</span>进行反馈</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/08/05/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%89)%20------%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%88%E4%B8%80%EF%BC%89/" title="JVM垃圾收集器(三) ------ 垃圾回收器（一）"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/GC3-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM垃圾收集器(三) ------ 垃圾回收器（一）"/></a><div class="content"><a class="title" href="/2021/08/05/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%89)%20------%20%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%88%E4%B8%80%EF%BC%89/" title="JVM垃圾收集器(三) ------ 垃圾回收器（一）">JVM垃圾收集器(三) ------ 垃圾回收器（一）</a><time datetime="2021-08-05T15:22:56.000Z" title="发表于 2021-08-05 23:22:56">2021-08-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/28/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%BA%8C)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="JVM垃圾收集器(二) ------ 垃圾收集相关算法"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/GC1-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM垃圾收集器(二) ------ 垃圾收集相关算法"/></a><div class="content"><a class="title" href="/2021/07/28/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%BA%8C)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" title="JVM垃圾收集器(二) ------ 垃圾收集相关算法">JVM垃圾收集器(二) ------ 垃圾收集相关算法</a><time datetime="2021-07-28T05:12:32.000Z" title="发表于 2021-07-28 13:12:32">2021-07-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/20/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%80)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%A6%82%E8%BF%B0/" title="JVM垃圾收集器(一) ------ 垃圾收集概述"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/GC0-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM垃圾收集器(一) ------ 垃圾收集概述"/></a><div class="content"><a class="title" href="/2021/07/20/Java/GC/JVM%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8(%E4%B8%80)%20------%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%A6%82%E8%BF%B0/" title="JVM垃圾收集器(一) ------ 垃圾收集概述">JVM垃圾收集器(一) ------ 垃圾收集概述</a><time datetime="2021-07-20T11:25:49.000Z" title="发表于 2021-07-20 19:25:49">2021-07-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/10/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E5%85%AD%EF%BC%89------%20%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/" title="JVM内存模型（六）------ 对象在内存中的存储"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/runtime-data5-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM内存模型（六）------ 对象在内存中的存储"/></a><div class="content"><a class="title" href="/2021/07/10/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E5%85%AD%EF%BC%89------%20%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8/" title="JVM内存模型（六）------ 对象在内存中的存储">JVM内存模型（六）------ 对象在内存中的存储</a><time datetime="2021-07-10T02:15:49.000Z" title="发表于 2021-07-10 10:15:49">2021-07-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/06/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%BA%94%EF%BC%89------%20%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%EF%BC%8C%E6%9C%AC%E5%9C%B0%E5%BA%93%E6%8E%A5%E5%8F%A3/" title="JVM内存模型（五）------ 执行引擎，本地库接口"><img data-lazy-src="https://gitee.com/phshi/phshi_picture/raw/master/img/runtime-data4-canva.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM内存模型（五）------ 执行引擎，本地库接口"/></a><div class="content"><a class="title" href="/2021/07/06/Java/JVM/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%BA%94%EF%BC%89------%20%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%EF%BC%8C%E6%9C%AC%E5%9C%B0%E5%BA%93%E6%8E%A5%E5%8F%A3/" title="JVM内存模型（五）------ 执行引擎，本地库接口">JVM内存模型（五）------ 执行引擎，本地库接口</a><time datetime="2021-07-06T15:25:49.000Z" title="发表于 2021-07-06 23:25:49">2021-07-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">17</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/JVM/"><span class="card-category-list-name">JVM</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/util/"><span class="card-category-list-name">util</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/util/zip%E6%96%87%E4%BB%B6/"><span class="card-category-list-name">zip文件</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86/"><span class="card-category-list-name">垃圾收集</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><span class="card-category-list-name">设计模式</span><span class="card-category-list-count">7</span></a></li></ul></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">27</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">27</span></a></li></ul></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">2</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/CentOS-7/"><span class="card-category-list-name">CentOS 7</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/docker/"><span class="card-category-list-name">docker</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">2</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/git/GitHub/"><span class="card-category-list-name">GitHub</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item parent"><a class="card-category-list-link" href="/categories/nginx/"><span class="card-category-list-name">nginx</span><span class="card-category-list-count">1</span><i class="fas fa-caret-left "></i></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/nginx/%E6%9C%8D%E5%8A%A1%E5%99%A8/"><span class="card-category-list-name">服务器</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/redis/"><span class="card-category-list-name">redis</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/git/" style="font-size: 1.2em; color: rgb(102, 54, 114)">git</a><a href="/tags/GitHub/" style="font-size: 1.15em; color: rgb(145, 64, 102)">GitHub</a><a href="/tags/redis/" style="font-size: 1.15em; color: rgb(29, 24, 30)">redis</a><a href="/tags/Java/" style="font-size: 1.4em; color: rgb(149, 189, 184)">Java</a><a href="/tags/JVM/" style="font-size: 1.35em; color: rgb(119, 58, 39)">JVM</a><a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86/" style="font-size: 1.25em; color: rgb(185, 17, 131)">垃圾收集</a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.3em; color: rgb(151, 117, 181)">设计模式</a><a href="/tags/LeetCode/" style="font-size: 1.45em; color: rgb(77, 15, 96)">LeetCode</a><a href="/tags/docker/" style="font-size: 1.15em; color: rgb(1, 53, 190)">docker</a><a href="/tags/Linux/" style="font-size: 1.15em; color: rgb(32, 76, 39)">Linux</a><a href="/tags/nginx/" style="font-size: 1.15em; color: rgb(114, 8, 57)">nginx</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">2021年08月</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">2021年07月</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">2021年06月</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">2021年05月</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">2021年04月</span><span class="card-archive-list-count">20</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">2021年03月</span><span class="card-archive-list-count">11</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">50</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2021-03-20T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">83.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-08-06T08:46:47.170Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/top_img/category.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Phshi</div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener external nofollow noreferrer" href="http://baby_shi.gitee.io/blog/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/utils.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/main.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/tw_cn.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@3.7.0/source/js/search/local-search.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadWaline () {
+    function initWaline () {
+      let initData = {
+        el: '#waline-wrap',
+        serverURL: 'https://phshi-blog.vercel.app',
+      }
+      
+      const waline = new Waline(initData)
+    }
+
+    if (typeof Waline === 'function') initWaline() 
+    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
+  }
+
+  window.pjax ? loadWaline() : window.addEventListener('load', loadWaline)
+})()</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/talking/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
